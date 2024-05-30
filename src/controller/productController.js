@@ -1,7 +1,5 @@
 import { Product } from "../schema/model.js";
 
-
-
 export let createProductController = async (req, res, next) => {
   let data = req.body; //{name:"".....}
 
@@ -22,7 +20,9 @@ export let createProductController = async (req, res, next) => {
 export let readProductController = async (req, res, next) => {
   //get product from database
   try {
-    let result = await Product.find({});
+    let result = await Product.find({})
+      .populate("categoryId", "categoryName")
+      .populate("subcategoryId");
     res.status(200).json({
       success: true,
       message: "product read successfully",

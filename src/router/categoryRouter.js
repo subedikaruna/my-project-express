@@ -1,22 +1,23 @@
-import { Router } from "express"
-import { createCategoryController, deleteCategoryController, readCategoryController, readSpecificCategoryController, updateCategoryController } from "../controller/categoryController.js"
+import { Router } from "express";
+import {
+  createCategoryController,
+  deleteCategoryController,
+  readCategoryController,
+  readSpecificCategoryController,
+  updateCategoryController,
+} from "../controller/categoryController.js";
 
-
-
-let categoryRouter=Router()
+let categoryRouter = Router();
 categoryRouter
-.route("/")
-.post(createCategoryController)
+  .route("/")
+  .post(createCategoryController)
 
-.get(readCategoryController)
+  .get(readCategoryController);
 
 categoryRouter
-.route("/:id")
-.get(readSpecificCategoryController)
-.patch(updateCategoryController)
-.delete(deleteCategoryController)
+  .route("/:id")
+  .get(readSpecificCategoryController)
+  .patch(updateCategoryController)
+  .delete(deleteCategoryController);
 
-
-
-
-export default categoryRouter
+export default categoryRouter;
