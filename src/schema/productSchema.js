@@ -7,12 +7,12 @@ let productSchema = Schema({
     required: [true, "productName field is required"],
   },
   categoryId: {
-    type: Number,
+  
     type: Schema.ObjectId,
     ref: "Category",
   },
   subcategoryId: {
-    type: Number,
+
     type: Schema.ObjectId,
     ref: "Subcategory",
   },

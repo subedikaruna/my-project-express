@@ -6,8 +6,8 @@ let imageSchema = Schema({
     required: [true, "productName field is required"],
   },
   productId: {
-    type: Number,
-    required: [true, "ProductId field is required"],
+    type: Schema.ObjectId,
+    ref: "Product",
   },
   imagePath: {
     type: String,

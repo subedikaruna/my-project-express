@@ -10,13 +10,13 @@
 
 
 import mongoose from "mongoose";
-import { dbURL } from "../validation/constant.js";
+import { dbUrl } from "../validation/constant.js";
 
 let connectToMongoDb = async () => {
   try {
-    await mongoose.connect(`${dbURL}`);
+    await mongoose.connect(`${dbUrl}`);
     console.log(
-      `application is connected to database successfully at port ${dbURL}`
+      `application is connected to database successfully at port ${dbUrl}`
     );
   } catch (error) {
     console.log(error.message);

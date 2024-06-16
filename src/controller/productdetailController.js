@@ -21,7 +21,8 @@ export let createProductdetailController = async (req, res, next) => {
 export let readProductdetailController = async (req, res, next) => {
   //get productdetail from database
   try {
-    let result = await Productdetail.find({});
+    let result = await Productdetail.find({})
+    .populate("productId", "productName");
     res.status(200).json({
       success: true,
       message: "productdetail read successfully",
@@ -39,7 +40,7 @@ export let readProductdetailController = async (req, res, next) => {
 
 export let readSpecificProductdetailController = async (req, res, next) => {
   try {
-    let result = await Productdetail.findById(req.params.id);
+    let result = await Productdetail.findById(req.params.id).populate("productId", "productName");;
     res.status(200).json({
       success: true,
       message: "productdetail read successfully",

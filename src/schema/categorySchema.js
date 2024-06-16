@@ -3,7 +3,7 @@ import { Schema } from "mongoose";
 let categorySchema=Schema({
     categoryName:{
         type: String,
-        required: [true, "productImage field is required"],
+        required: [true, "caImage field is required"],
     },
     categoryParent:{
         type:String,

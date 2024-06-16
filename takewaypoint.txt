@@ -1,0 +1,62 @@
+In package.json add
+   "type":"module",
+   if we do so,js will support import,export feature
+
+   frontend request backend 
+   requests are : CRUD i.e.
+   create
+   read
+   update
+   delete
+
+//Making API means frontend request backend and backend does the task according to the request
+
+//To request ,we need:
+UrL
+Method
+in crud:
+   create-post
+   read-get
+   update-patch
+   delete-delete
+
+
+
+   url=localhost:8000/trainees/123?name=karuna & age=30&address=hetauda
+   url=route?query
+   route=baseUrl+route params
+
+
+   one request must have one response
+   middleware:
+      function which has request,res,next are middleware
+      next()is used to trigger another middleware
+
+       two types of middleware based on error:
+      normal middleware=(req,res,next)=>{} to trigger another middleware next() is used
+      normal middleware=(err,req,res,next)=>{} to trigger another middleware next(data) is used
+
+      two types of middlewrae based on location:
+      route middleware=>defined in route
+      application middleware=>defined in index.js (or main file)
+
+      //mongodb database
+
+
+      we have to define structure of datadefine array(model)
+      define array(model)
+      define object
+      define object(schema)
+
+      sequence:
+      schema
+      model 
+      controller
+      router
+      index
+
+      In searching type doesnot matter
+      
+
+
+   
