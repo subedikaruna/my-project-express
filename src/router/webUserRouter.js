@@ -1,7 +1,7 @@
 import { Router } from "express";
 
 import isAuthenticated from "../middleware/isAuthenticated.js";
-import { WebUser } from "../schema/model.js";
+
 import authorized from "../middleware/authorized.js";
 import { createWebUserController, deleteSpecificUser, forgotPassword, loginUser, myProfile, readAllUser, readSpecificUser, resetPassword, updatePassword, updateProfile, updateSpecificUser, verifyEmail } from "../controller/WebUserController.js";
 

@@ -30,8 +30,8 @@ export let createWebUserController = async (req, res, next) => {
     let token = await jwt.sign(infoObj, secretKey, expiryInfo);
 
     await sendEmail({
-      from: '"Hello" <kctsohil@gmail.com>',
-      to: data.email,
+      from: '"Hello" <karyanna7@gmail.com>',
+      to: [req.body.email],
       subject: "account create",
       html: `<h1>your account has been created successfully</h1>
          <a href="http://localhost:3000/verify-email?token=${token}">
