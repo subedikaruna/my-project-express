@@ -1,42 +1,45 @@
 import jwt from "jsonwebtoken";
 import { secretKey } from "./src/validation/constant.js";
 import expressAsyncHandler from "express-async-handler";
-export let generateToken = expressAsyncHandler(
-  async (infoObj, secretKey, expiryInfo) => {
-    let token = await jwt.sign(infoObj, secretKey, expiryInfo);
-    return token;
-  }
-);
-export let verifyToken = expressAsyncHandler(async (token, secretKey) => {
-  let infoObj = await jwt.verify(token, secretKey);
+
+// Function to generate a JWT token
+export const generateToken = expressAsyncHandler(async (infoObj, expiryInfo) => {
+  const token = await jwt.sign(infoObj, secretKey, expiryInfo);
+  return token;
+});
+
+// Function to verify a JWT token
+export const verifyToken = expressAsyncHandler(async (token) => {
+  const infoObj = await jwt.verify(token, secretKey);
   return infoObj;
 });
 
-//generate token
-// let infoObj={
-//     id:"1234",
-//     role:"admin"
+// Example usage to generate a token
+const infoObj = {
+  id: "1234",
+  role: "admin"
+};
+const expiryInfo = {
+  expiresIn: "365d"
+};
 
-// }
-// let secretKey="shoes"
-// let expiryInfo={
-//     expiresIn:"365d"
-// }
-// // //expiryInfo must be in same format
-// let token= await jwt.sign(infoObj,secretKey,expiryInfo)
-// console.log(token)
+// Generate token
+generateToken(infoObj, expiryInfo)
+  .then((token) => {
+    console.log("Generated Token:", token);
+  })
+  .catch((error) => {
+    console.error("Error generating token:", error.message);
+  });
 
-//verify token
-let token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MTg1NTcxMTIsImV4cCI6MTc1MDA5MzExMn0.dcyX4GXZzzK5Y7SpCjH1lat1vAhsWlazrhCKcU2NdJw";
-try {
-  let infoObj = await jwt.verify(token, "shoes"); //shoes is secretKey
-  //   //for a verified token
-  //   //a token must be made from given secretKey
-  //   //it shouldnot exceed expiryInfo
-  console.log(infoObj);
-} catch (error) {
-  console.log(error.message);
-}
+// Example token for verification
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MTg1NTcxMTIsImV4cCI6MTc1MDA5MzExMn0.dcyX4GXZzzK5Y7SpCjH1lat1vAhsWlazrhCKcU2NdJw";
 
-//npm i webtoken
+// Verify token
+verifyToken(token)
+  .then((infoObj) => {
+    console.log("Verified Token Info:", infoObj);
+  })
+  .catch((error) => {
+    console.error("Error verifying token:", error.message);
+  });

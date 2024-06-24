@@ -11,4 +11,4 @@ export let Subcategory = model("Subcategory", subcategorySchema);
 export let Image = model("Image", imageSchema);
 export let Product = model("Product", productSchema);
 export let Productdetail = model("Productdetail", productdetailSchema);
-export let WebUser=model("WebUser",webUserSchema)
+export let WebUser = model("WebUser", webUserSchema);

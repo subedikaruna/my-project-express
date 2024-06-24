@@ -1,5 +1,5 @@
 import express, { json } from "express";
-// process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 import cors from "cors";
 
 

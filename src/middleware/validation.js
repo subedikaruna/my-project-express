@@ -1,6 +1,6 @@
-let validation = (randomValidation) => {
+let validation = (userValidation) => {
   return (req, res, next) => {
-    let data = randomValidation.validate(req.body);
+    let data = userValidation.validate(req.body);
     let error = data.error;
     if (error) {
       res.json({
@@ -9,8 +9,8 @@ let validation = (randomValidation) => {
       });
     } else {
       next();
-    }
+    };
   };
-};
-
+}
+ 
 export default validation;
